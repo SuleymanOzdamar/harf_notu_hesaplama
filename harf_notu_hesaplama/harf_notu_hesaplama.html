@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: aquamarine;
+        }
+
+        #div1 {
+            width: 30%;
+            height: auto;
+            background-color: lightgray;
+            position: absolute;
+            border-radius: 10px;
+            left: 35%;
+            top: 25%;
+        }
+
+        img {
+            width: 100%;
+            height: 760px;
+        }
+
+        #vize1 {
+            width: 150px;
+            height: 30px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        #vize2 {
+            width: 150px;
+            height: 30px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        #final {
+            width: 150px;
+            height: 30px;
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+
+        #btn {
+            width: 200px;
+            height: 30px;
+            margin-left: 120px;
+            margin-bottom: 10px;
+        }
+
+        #div2 {
+            width: 50px;
+            height: 40px;
+            background-color: white;
+            margin: auto;
+            display: none;
+            font-size: 32px;
+            text-align: center;
+            font-style: oblique;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+
+        <label style="margin-left: 60px;" for="kullaniciadi">Vize 1</label>
+        <input type="text" id="vize1"><br>
+        <label style="margin-left: 60px;" for="parola">Vize 2</label>
+        <input type="text" id="vize2"><br>
+        <label style="margin-left: 60px;" for="parola">Final</label>
+        <input type="text" id="final"><br><br>
+
+        <div id="div2">
+
+        </div>
+
+        <br><br>
+        <button onclick="yazdir()" id="btn">Hesapla</button>
+
+
+
+    </div>
+
+    <img src="image/1.jpg" id="img" width="1300" height="600">
+
+    <script>
+        var vize1, vize2, final, ortalama;
+
+        function hesapla() {
+            vize1 = document.getElementById("vize1").value;
+            vize2 = document.getElementById("vize2").value;
+            final = document.getElementById("final").value;
+
+            ortalama = (vize1 * 0.3) + (vize2 * 0.3) + (final * 0.4);
+
+            return ortalama;
+        }
+
+        function harfnotu() {
+
+            var ort = hesapla();
+
+            if (ort > 90) {
+
+                return "AA";
+            } else if (ort > 85) {
+
+                return "BA";
+            } else if (ort > 80) {
+
+                return "BB";
+            } else if (ort > 70) {
+
+                return "CB";
+            } else if (ort > 60) {
+
+                return "CC";
+            } else if (ort > 50) {
+
+                return "DC";
+            } else if (ort > 40) {
+
+                return "DD";
+            }
+            else {
+                return "FF";
+            }
+
+
+        }
+
+        function yazdir () {
+
+            document.getElementById("div2").style.display = "block";
+            document.getElementById("div2").innerHTML = harfnotu();
+            
+
+            if(harfnotu() == "FF") {
+                document.getElementById("div2").style.backgroundColor = "red";
+            }
+            else {
+                document.getElementById("div2").style.backgroundColor = "green";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
